@@ -1,76 +1,131 @@
-BODY,TD,input,div,form,TEXTAREA,center,option,pre,blockquote {font-size:9pt;color:#666666;font-family:±¼¸²;}
+/* import for notification message style */
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+BODY,TD,input,div,form,TEXTAREA,center,option,pre,blockquote {font-size:9pt; color:#666666; font-family:±¼¸²;}
 TD {line-height:140%}
-body 
-{
+body {
 	background-color:#000000;
-	scrollbar-face-color: #000000;
-	scrollbar-highlight-color: #000000;
-	scrollbar-3dlight-color: #555555;
+	/* no more support for scrollbar style
+	scrollbar-face-color:#000000;
+	scrollbar-highlight-color:#000000;
+	scrollbar-3dlight-color:#555555;
 	scrollbar-shadow-color:#000000;
 	scrollbar-darkshadow-color:#404040;
 	scrollbar-track-color:#000000;
-	scrollbar-arrow-color: #555555;
+	scrollbar-arrow-color:#555555;
+	*/
 	text-align:center;
 }
-A:link    {color:666666;text-decoration:none;font-family:±¼¸²;font-size:9pt;}
-A:visited {color:666666;text-decoration:none;font-family:±¼¸²;font-size:9pt;}
-A:active  {color:ff6666;text-decoration:none;font-family:±¼¸²;font-size:9pt;}
-A:hover  {color:666666;text-decoration:none;font-family:±¼¸²;font-size:9pt;}
-#container{
+A:link    {color:#666666; text-decoration:none; font-family:±¼¸²; font-size:9pt;}
+A:visited {color:#666666; text-decoration:none; font-family:±¼¸²; font-size:9pt;}
+A:active  {color:#ff6666; text-decoration:none; font-family:±¼¸²; font-size:9pt;}
+A:hover  {color:#666666; text-decoration:none; font-family:±¼¸²; font-size:9pt;}
+
+#container {
 	width:846px;
 	margin:0px auto;
 }
 
-#header{
+#header {
 	display:none;
 }
-#sidebar{
+#sidebar {
 	margin:20px 0px;
 	text-align:left;
 	width:190px;
 	float:left;
 }
-
-#content{
+#content {
 	border-left:1px solid #151515;
 	border-right:1px solid #151515;
 	float:right;
 	width:645px;
 }
-#submenu{
+
+#submenu {
 	border:1px solid #151515;
 	margin:30px 0px;
 }
-#record{
+#record {
 	width:100%;
-
 }
-.outter{
+
+.outter {
 	list-style-type:none;
-	margin:0px 0px ;
+	margin:0px 0px;
 	color:#A30;
 	font-size:12px;
-	font-weight: bold;
+	font-weight:bold;
 }
-.inner{
+.inner {
 	color:#A50;
-	margin:0px 0px ;
-	list-style-type: square;
+	margin:0px 0px;
+	list-style-type:square;
 	list-style-position:inside;
-	font-weight: normal;
-
+	font-weight:normal;
 }
 
 #sidebar ul {
-	background: #111111;
-	border: solid 1px #151515;
+	background:#111111;
+	border:solid 1px #222;
 	padding:10px;
 	margin:10px 5px 5px 5px;
 }
-
-#sidebar ul ul{
+#sidebar ul ul {
 	margin:0px 0px 0px 0px;
 	padding:10px 0px 0px 0px;
-	border: solid 1px #111111;
+	border:solid 1px #111111;
+	overflow:hidden;
 }
 
+/* notification message style */
+.my-notify-info, .my-notify-success, .my-notify-warning, .my-notify-error {
+    padding:10px;
+    margin:10px 0;
+ 
+}
+.my-notify-info:before, .my-notify-success:before, .my-notify-warning:before, .my-notify-error:before {
+    font-family:FontAwesome;
+    font-style:normal;
+    font-weight:400;
+    speak:none;
+    display:inline-block;
+    text-decoration:inherit;
+    width:1em;
+    margin-right:.2em;
+    text-align:center;
+    font-variant:normal;
+    text-transform:none;
+    line-height:1em;
+    margin-left:.2em;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+.my-notify-info:before {
+    content:"\f05a";
+}
+.my-notify-success:before {
+    content:'\f00c';
+}
+.my-notify-warning:before {
+    content:'\f071';
+}
+.my-notify-error:before {
+    content:'\f057';
+}
+.my-notify-info {
+    color:#00529B;
+    background-color:#BDE5F8;
+}
+.my-notify-success {
+    color:#4F8A10;
+    background-color:#DFF2BF;
+}
+.my-notify-warning {
+    color:#9F6000;
+    background-color:#FEEFB3;
+}
+.my-notify-error {
+    color:#D8000C;
+    background-color:#FFBABA;
+}

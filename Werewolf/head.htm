@@ -280,7 +280,7 @@ A:hover  {color:#666666; text-decoration:none; font-family:굴림; font-size:9pt;}
 					현재 다음 마을에 참여 중입니다. 상태를 확인하거나 돌연사하지 않도록 로그를 남겨주세요.
 					<?
 						while($temp = mysql_fetch_array($entry)) {
-							$game = mysql_fetch_array(mysql_query("select * from `zetyx_board_$id` where no = ".$temp['game']));
+							$game = mysql_fetch_array(mysql_query("select * from `zetyx_board_werewolf` where no = ".$temp['game']));
 							
 							echo "<br><br><a href='".$currentHost."/bbs/view.php?id=werewolf&no=".$game['no']."'>".$game['subject']."</a>";
 						}
@@ -289,6 +289,7 @@ A:hover  {color:#666666; text-decoration:none; font-family:굴림; font-size:9pt;}
 		<?	}
 
 			unset($entry);
+			unset($temp);
 			unset($game);
 		}
 		?>

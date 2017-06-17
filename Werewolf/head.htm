@@ -1,154 +1,204 @@
 <meta http-equiv=Content-Type content=text/html; charset='EUC-KR'>
-<link rel="StyleSheet" HREF="../Werewolf/style.css" type="text/css" title="style" media="screen">
-<link rel="StyleSheet" HREF="../Werewolf/m_style.css" type="text/css" title="style" media="mobile">
-<style type="text/css" >
-BODY,TD,input,div,form,TEXTAREA,center,option,pre,blockquote {font-size:9pt;color:#666666;font-family:굴림;}
+<?
+	// get the current host and document root
+	$currentHost = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
+	$currentHost .= $_SERVER['HTTP_HOST'];
+	$rootPath = $_SERVER['DOCUMENT_ROOT'];
+?>
+<link rel="StyleSheet" HREF="<?=$currentHost?>/Werewolf/style.css?ver=<?php echo filemtime($rootPath.'/Werewolf/style.css'); ?>" type="text/css" title="style" media="screen">
+<link rel="StyleSheet" HREF="<?=$currentHost?>/Werewolf/m_style.css?ver=<?php echo filemtime($rootPath.'/m_style.css'); ?>" type="text/css" title="style" media="mobile">
+<style type="text/css">
+/* import for notification message style */
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+BODY,TD,input,div,form,TEXTAREA,center,option,pre,blockquote {font-size:9pt; color:#666666; font-family:굴림;}
 TD {line-height:140%}
-body 
-{
+body {
 	background-color:#000000;
-	scrollbar-face-color: #000000;
-	scrollbar-highlight-color: #000000;
-	scrollbar-3dlight-color: #555555;
+	/* no more support for scrollbar style
+	scrollbar-face-color:#000000;
+	scrollbar-highlight-color:#000000;
+	scrollbar-3dlight-color:#555555;
 	scrollbar-shadow-color:#000000;
 	scrollbar-darkshadow-color:#404040;
 	scrollbar-track-color:#000000;
-	scrollbar-arrow-color: #555555;
+	scrollbar-arrow-color:#555555;
+	*/
 	text-align:center;
 }
-A:link    {color:666666;text-decoration:none;font-family:굴림;font-size:9pt;}
-A:visited {color:666666;text-decoration:none;font-family:굴림;font-size:9pt;}
-A:active  {color:ff6666;text-decoration:none;font-family:굴림;font-size:9pt;}
-A:hover  {color:666666;text-decoration:none;font-family:굴림;font-size:9pt;}
-#container{
+A:link    {color:#666666; text-decoration:none; font-family:굴림; font-size:9pt;}
+A:visited {color:#666666; text-decoration:none; font-family:굴림; font-size:9pt;}
+A:active  {color:#ff6666; text-decoration:none; font-family:굴림; font-size:9pt;}
+A:hover  {color:#666666; text-decoration:none; font-family:굴림; font-size:9pt;}
+
+#container {
 	width:846px;
 	margin:0px auto;
 }
 
-#header{
+#header {
 	display:none;
 }
-#sidebar{
+#sidebar {
 	margin:20px 0px;
 	text-align:left;
 	width:190px;
 	float:left;
 }
-
-#content{
+#content {
 	border-left:1px solid #151515;
 	border-right:1px solid #151515;
 	float:right;
 	width:645px;
 }
-#submenu{
+
+#submenu {
 	border:1px solid #151515;
 	margin:30px 0px;
 }
-#record{
+#record {
 	width:100%;
-
 }
-.outter{
+
+.outter {
 	list-style-type:none;
-	margin:0px 0px ;
+	margin:0px 0px;
 	color:#A30;
 	font-size:12px;
-	font-weight: bold;
+	font-weight:bold;
 }
-.inner{
+.inner {
 	color:#A50;
-	margin:0px 0px ;
-	list-style-type: square;
+	margin:0px 0px;
+	list-style-type:square;
 	list-style-position:inside;
-	font-weight: normal;
-
+	font-weight:normal;
 }
 
 #sidebar ul {
-	background: #111111;
-	border: solid 1px #222;
+	background:#111111;
+	border:solid 1px #222;
 	padding:10px;
 	margin:10px 5px 5px 5px;
 }
-
-#sidebar ul ul{
+#sidebar ul ul {
 	margin:0px 0px 0px 0px;
 	padding:10px 0px 0px 0px;
-	border: solid 1px #111111;
+	border:solid 1px #111111;
+	overflow:hidden;
 }
 
-
-
+/* notification message style */
+.my-notify-info, .my-notify-success, .my-notify-warning, .my-notify-error {
+    padding:10px;
+    margin:10px 0;
+ 
+}
+.my-notify-info:before, .my-notify-success:before, .my-notify-warning:before, .my-notify-error:before {
+    font-family:FontAwesome;
+    font-style:normal;
+    font-weight:400;
+    speak:none;
+    display:inline-block;
+    text-decoration:inherit;
+    width:1em;
+    margin-right:.2em;
+    text-align:center;
+    font-variant:normal;
+    text-transform:none;
+    line-height:1em;
+    margin-left:.2em;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+.my-notify-info:before {
+    content:"\f05a";
+}
+.my-notify-success:before {
+    content:'\f00c';
+}
+.my-notify-warning:before {
+    content:'\f071';
+}
+.my-notify-error:before {
+    content:'\f057';
+}
+.my-notify-info {
+    color:#00529B;
+    background-color:#BDE5F8;
+}
+.my-notify-success {
+    color:#4F8A10;
+    background-color:#DFF2BF;
+}
+.my-notify-warning {
+    color:#9F6000;
+    background-color:#FEEFB3;
+}
+.my-notify-error {
+    color:#D8000C;
+    background-color:#FFBABA;
+}
 </style>
 
 <style type="text/css" media='print'>
-#header{display:none;}
-#sidebar{display:none;}
-#content{font-size:5pt;}
+#header {display:none;}
+#sidebar {display:none;}
+#content {font-size:5pt;}
 </style>
 <style type="text/css" media='mobile'>
-#header{display:none;}
-#sidebar{display:none;}
-#content{font-size:5pt;}
+#header {display:none;}
+#sidebar {display:none;}
+#content {font-size:5pt;}
 </style>
 
-
-
-
 <div id="container" >
-
 	<div id="header"></div>
 	<div id="sidebar">
-	<?if($member[no]==1 or ($member[no]==1488 and 0)){?>
-		<img src="http://werewolf.co.kr/Werewolf/ddd.png">
-	<?}?>
+		<?if($member[no]==1 or ($member[no]==1488 and 0)){?>
+			<img src="http://werewolf.co.kr/Werewolf/ddd.png">
+		<?}?>
 
-	<?if($member[level]==8){?>
-		<div class="nomanner">현재 비매너 처리 중입니다<br />
-			<a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a>에 도장을 찍어주세요.
-		</div>
-	<?}?>
+		<?if($member[level]==8){?>
+			<div class="nomanner">현재 비매너 처리 중입니다<br />
+				<a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a>에 도장을 찍어주세요.
+			</div>
+		<?}?>
+		
 		<ul>
 			<li class="outter"><a title="인간의 탈을 쓴 늑대">인랑</a></li>
-					<ul class="inner">
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=werewolf"><strong>참여하기</strong></a></li>				
-						<li><a href="http://ko.werewolf.wikia.com" target="blank">룰과 매뉴얼</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_role-playing.php?id=werewolf&set=1">롤 플레잉 세트</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_private_record.php?id=werewolf">개인 기록</a></li>
-
-<!--						<li><a href="#" onMousedown="window.open('http://werewolf.co.kr/bbs/view_info.php?member_no=1','view_info','width=400,height=510,toolbar=no,scrollbars=yes')">운영자에게 쪽지</a></li>-->
-						
-					</ul>
+			<ul class="inner">
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=werewolf"><strong>참여하기</strong></a></li>				
+				<li><a href="http://ko.werewolf.wikia.com" target="blank">룰과 매뉴얼</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_role-playing.php?id=werewolf&set=1">롤 플레잉 세트</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_private_record.php?id=werewolf">개인 기록</a></li>
+				<!--<li><a href="#" onMousedown="window.open('http://werewolf.co.kr/bbs/view_info.php?member_no=1','view_info','width=400,height=510,toolbar=no,scrollbars=yes')">운영자에게 쪽지</a></li>-->	
 			</ul>
+		</ul>
 
 		<ul>
 			<li class="outter">전당</li>
-					<ul class="inner">
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_best_village.php?id=werewolf">Best 마을</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_members_record.php?id=werewolf">수다의 전당</a></li>
-					</ul>
+			<ul class="inner">
+				<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_best_village.php?id=werewolf">Best 마을</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_members_record.php?id=werewolf">수다의 전당</a></li>
+			</ul>
 		</ul>
-
-
 
 		<ul>
 			<li class="outter">게시판</li>
-					<ul class="inner">
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=notice">공지사항</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree"><strong>낙서장</strong></a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=introduction">자기 소개</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree&no=8927">IRC #인랑</a></li>						
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=survey">설문 조사</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=novel">릴레이 소설</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfLink">커뮤니티</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=toadmin">운영자에게</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfExplanation">소명해주세요</a></li>
-					</ul>
+			<ul class="inner">
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=notice">공지사항</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree"><strong>낙서장</strong></a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=introduction">자기 소개</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree&no=8927">IRC #인랑</a></li>						
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=survey">설문 조사</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=novel">릴레이 소설</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfLink">커뮤니티</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=toadmin">운영자에게</a></li>
+				<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfExplanation">소명해주세요</a></li>
+			</ul>
 		</ul>
-
-
 
 <!--"http://werewolf.co.kr/bbs/zboard.php?id=wolfManual"
 							<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfUpdate">공지사항 및 업데이트</a></li>
@@ -182,41 +232,65 @@ A:hover  {color:666666;text-decoration:none;font-family:굴림;font-size:9pt;}
 						<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfAnger" title="분노!">임금님 귀는 당나귀 귀</a></li>
 					</ul>
 -->
+
 		<ul>
 			<li class="outter">1日 서버</li>
-					<ul class="inner">
-						<li><a href="http://werewolf.co.kr">1日 서버<br>werewolf.co.kr</a></li>				
-						<li><a href="http://werewolf6.cafe24.com">30분 서버<br>werewolf6.cafe24.com</a></li>		
-						<!--li><a href="http://reken.just4fun.co.kr">추억의 1 서버<br>reken.just4fun.co.kr</a></li-->				
-					</ul>
+			<ul class="inner">
+				<li><a href="http://werewolf.co.kr">1日 서버<br>werewolf.co.kr</a></li>				
+				<li><a href="http://werewolf6.cafe24.com">30분 서버<br>werewolf6.cafe24.com</a></li>		
+				<!--li><a href="http://reken.just4fun.co.kr">추억의 1 서버<br>reken.just4fun.co.kr</a></li-->				
+			</ul>
 		</ul>
 
-
-<?if(1 <= $member[level] and $member[level]<=6 and 1){?>
-		<ul>
-			<li class="outter">관리용</li>
-					<ul class="inner">
-						<li><a href="http://mrtg.hosting.cafe24.com/uml/uml-009_vconn5.html" target="_blank">전송량 모니터링</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_members_recordddd.php?id=werewolf">전체 기록</a></li>
-						<li><a href="http://whois.nic.or.kr/result.php" target="_blank">IP 주소 추적</a></li>						
-						<li><a href="http://werewolf.co.kr/bbs/log/ipClash.txt" target="_blank">IP 충돌 체크</a></li>						
-						<li><a href="http://werewolf.co.kr/bbs/log/loginCheck.txt" target="_blank">로그인 체크</a></li>						
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_no_manner_player.php?id=werewolf">비매너 플레이어</a></li>
-						<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_ip_overlap.php?id=werewolf">IP 중복 체크</a></li>
-						<li><a href="http://werewolf.co.kr/~werewolf5/throttle-me">전송량</a></li>
-						<li><a href="http://j64-003.cafe24.com/WebMysql">mysql</a></li>
-					</ul>
-		</ul>
-
-<?}?>
+		<?if(1 <= $member[level] and $member[level]<=6 and 1){?>
+			<ul>
+				<li class="outter">관리용</li>
+				<ul class="inner">
+					<li><a href="http://mrtg.hosting.cafe24.com/uml/uml-009_vconn5.html" target="_blank">전송량 모니터링</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_members_recordddd.php?id=werewolf">전체 기록</a></li>
+					<li><a href="http://whois.nic.or.kr/result.php" target="_blank">IP 주소 추적</a></li>						
+					<li><a href="http://werewolf.co.kr/bbs/log/ipClash.txt" target="_blank">IP 충돌 체크</a></li>						
+					<li><a href="http://werewolf.co.kr/bbs/log/loginCheck.txt" target="_blank">로그인 체크</a></li>						
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_no_manner_player.php?id=werewolf">비매너 플레이어</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_ip_overlap.php?id=werewolf">IP 중복 체크</a></li>
+					<li><a href="http://werewolf.co.kr/~werewolf5/throttle-me">전송량</a></li>
+					<li><a href="http://j64-003.cafe24.com/WebMysql">mysql</a></li>
+				</ul>
+			</ul>
+		<?}?>
+		
 		<!--
 		<div id="submenu">
 				<span id="print"><a href="javascript:window.print()">print</a></span> &nbsp;
 				<span id="rss"><a href="http://werewolf.co.kr/bbs/wolfrss.php">rss</a></span>
 		</div>
 		-->
-
-
-</div>
+		
+	</div>
 
 	<div id="content">
+		<!-- notifications start -->
+		<?
+		if($member[no]) {
+			$entry = mysql_query("select t_entry.* from zetyx_board_werewolf_entry t_entry, zetyx_board_werewolf_gameinfo t_gameinfo where t_entry.player = ".$member[no]." and t_entry.game = t_gameinfo.game and (t_gameinfo.state = '준비중' or (t_gameinfo.state = '게임중' and t_entry.comment = 0));");
+			
+			if(mysql_num_rows($entry) > 0) {
+		?>
+				<div id="parti_notification" class="my-notify-warning">
+					현재 다음 마을에 참여 중입니다. 상태를 확인하거나 돌연사하지 않도록 로그를 남겨주세요.
+					<?
+						while($temp = mysql_fetch_array($entry)) {
+							$game = mysql_fetch_array(mysql_query("select * from `zetyx_board_$id` where no = ".$temp['game']));
+							
+							echo "<br><br><a href='".$currentHost."/bbs/view.php?id=werewolf&no=".$game['no']."'>".$game['subject']."</a>";
+						}
+					?>
+				</div>
+		<?	}
+
+			unset($entry);
+			unset($game);
+		}
+		?>
+		<!-- notifications end -->
+		

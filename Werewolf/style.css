@@ -78,6 +78,12 @@ A:hover  {color:#666666; text-decoration:none; font-family:±¼¸²; font-size:9pt;}
 	overflow:hidden;
 }
 
+@media print {
+	#header {display:none;}
+	#sidebar {display:none;}
+	#content {font-size:5pt;}
+}
+
 /* notification message style */
 .my-notify-info, .my-notify-success, .my-notify-warning, .my-notify-error {
     padding:10px;

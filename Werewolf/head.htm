@@ -10,10 +10,6 @@
 <div id="container">
 	<div id="header"></div>
 	<div id="sidebar">
-		<?if($member[no]==1 or ($member[no]==1488 and 0)){?>
-			<img src="http://werewolf.co.kr/Werewolf/ddd.png">
-		<?}?>
-
 		<?if($member[level]==8){?>
 			<div class="nomanner">현재 비매너 처리 중입니다<br />
 				<a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a>에 도장을 찍어주세요.
@@ -124,6 +120,51 @@
 	</div>
 	
 	<div id="content">
+		<nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>              
+              <ul id="menu">
+
+				<li class="outter"><a title="인간의 탈을 쓴 늑대">인랑</a></li>
+				<ul class="inner">
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=werewolf"><strong>참여하기</strong></a></li>				
+					<li><a href="http://ko.werewolf.wikia.com" target="blank">룰과 매뉴얼</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_role-playing.php?id=werewolf&set=1">롤 플레잉 세트</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=attendWerewolf">출석부</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_private_record.php?id=werewolf">개인 기록</a></li>
+				</ul>
+
+				<li class="outter">전당</li>
+				<ul class="inner">
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_best_village.php?id=werewolf">Best 마을</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/skin/werewolf/view_members_record.php?id=werewolf">수다의 전당</a></li>
+				</ul>
+
+				<li class="outter">게시판</li>
+				<ul class="inner">
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=notice">공지사항</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree"><strong>낙서장</strong></a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=introduction">자기 소개</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfFree&no=8927">IRC #인랑</a></li>						
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=survey">설문 조사</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=novel">릴레이 소설</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfLink">커뮤니티</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=toadmin">운영자에게</a></li>
+					<li><a href="http://werewolf.co.kr/bbs/zboard.php?id=wolfExplanation">소명해주세요</a></li>
+				</ul>					
+
+				<li class="outter">1日 서버</li>
+				<ul class="inner">
+					<li><a href="http://werewolf.co.kr">1日 서버<br>werewolf.co.kr</a></li>				
+					<li><a href="http://werewolf6.cafe24.com">30분 서버<br>werewolf6.cafe24.com</a></li>		
+				</ul>
+              </ul>
+            </div>
+            <div id="title">인랑(1日 서버)</div>
+        </nav>
 		<!-- notifications start -->
 		<?
 		if($member[no]) {
